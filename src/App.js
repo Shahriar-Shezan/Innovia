@@ -1,29 +1,35 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import Login from "./components/auth/login";
+import Register from "./components/auth/register";
 
-import AppHeader from './components/header';
-import AppHero from './components/hero';
-import AppAbout from './components/about';
-import AppServices from './components/services';
-import AppContact from './components/contact';
-import AppFooter from './components/footer';
+import Home from "./components/home";
+
+import { AuthProvider } from "./contexts/authContext";
+import { useRoutes } from "react-router-dom";
 
 function App() {
+  const routesArray = [
+    {
+      path: "*",
+      element: <Login />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/register",
+      element: <Register />,
+    },
+    {
+      path: "/home",
+      element: <Home />,
+    },
+  ];
+  let routesElement = useRoutes(routesArray);
   return (
-    <div className="App">
-      <header id='header'>
-        <AppHeader />
-      </header>
-      <main>
-        <AppHero />
-        <AppAbout />
-        <AppServices />
-        <AppContact />
-      </main>
-      <footer id="footer">
-        <AppFooter />
-      </footer>
-    </div>
+    <AuthProvider>
+      <div className="w-full h-screen flex flex-col">{routesElement}</div>
+    </AuthProvider>
   );
 }
 
