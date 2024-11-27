@@ -6,6 +6,7 @@ import { getAuth } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyBArTmsqvqiLiQ4xwYdNYv6Zi-u-qHHuDA",
   authDomain: "nnovia-tech.firebaseapp.com",
+  databaseURL: "https://nnovia-tech-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "nnovia-tech",
   storageBucket: "nnovia-tech.appspot.com",
   messagingSenderId: "284196363429",
@@ -16,4 +17,5 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-export {app, auth};
+
+export {app,auth}

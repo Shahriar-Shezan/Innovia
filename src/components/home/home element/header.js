@@ -56,6 +56,17 @@ function AppHeader() {
               </Nav.Link>
             )}
           </div>
+          <div className="flex items-center space-x-6">
+            <Nav.Link
+              as="button"
+              onClick={()=>{
+                navigate('/write')
+              }}
+              className="text-sm text-gray-700 hover:text-blue-600 transition-colors ml-6"
+            >
+              Devtools
+            </Nav.Link>
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>

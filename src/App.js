@@ -1,5 +1,7 @@
 import Login from "./components/auth/login";
 import Register from "./components/auth/register";
+import Write from "./components/Database/Write";
+
 
 import Home from "./components/home";
 
@@ -24,6 +26,11 @@ function App() {
       path: "/home",
       element: <Home />,
     },
+    {
+      path: "/write",
+      element: <Write/>,
+    }
+
   ];
   let routesElement = useRoutes(routesArray);
   return (
