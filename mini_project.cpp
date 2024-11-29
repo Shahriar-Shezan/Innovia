@@ -1,129 +1,173 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Node {
-    int data;
-    Node* next;
+struct ListNode {
+    int value;
+    ListNode* next;
 };
 
-void insert(Node*& head, int data) {
-    Node* newNode = new Node();
-    newNode->data = data;
+
+void insert(ListNode*& head, int newValue) {
+    ListNode* newNode = new ListNode();
+    newNode->value = newValue;
     newNode->next = nullptr;
 
-    if (head == nullptr || head->data >= data) {
+    if (head == nullptr || head->value >= newValue) {
         newNode->next = head;
         head = newNode;
     } else {
-        Node* current = head;
-        while (current->next != nullptr && current->next->data < data) {
-            current = current->next;
+        ListNode* currentNode = head;
+        while (currentNode->next != nullptr && currentNode->next->value < newValue) {
+            currentNode = currentNode->next;
         }
-        newNode->next = current->next;
-        current->next = newNode;
+        newNode->next = currentNode->next;
+        currentNode->next = newNode;
     }
-    cout << "Inserted " << data << " into the list.\n";
+    cout << "Inserted " << newValue << " into the list.\n";
 }
 
-void deleteNode(Node*& head, int data) {
+
+void insert_R(ListNode*& head, int count, int v1, int v100) {
+    srand(time(0)); 
+    for (int i = 0; i < count; ++i) {
+        int randomValue = rand() % (v100 - v1 + 1) + v1;
+        insert(head, randomValue); 
+    }
+}
+
+
+void deleteNode(ListNode*& head, int targetValue) {
     if (head == nullptr) {
         cout << "List is empty.\n";
         return;
     }
 
-    if (head->data == data) {
-        Node* temp = head;
-        head = head->next;
-        delete temp;
-        cout << "Deleted " << data << " from the list.\n";
-        return;
-    }
+    ListNode *current = head, *lastOccurrence = nullptr, *prevLastOccurrence = nullptr, *prev = nullptr;
 
-    Node* current = head;
-    while (current->next != nullptr && current->next->data != data) {
+    while (current != nullptr) {
+        if (current->value == targetValue) {
+            lastOccurrence = current;
+            prevLastOccurrence = prev;
+        }
+        prev = current;
         current = current->next;
     }
 
-    if (current->next == nullptr) {
-        cout << "Element " << data << " not found in the list.\n";
-    } else {
-        Node* temp = current->next;
-        current->next = current->next->next;
-        delete temp;
-        cout << "Deleted " << data << " from the list.\n";
+    if (lastOccurrence == nullptr) {
+        cout << "Element " << targetValue << " not found in the list.\n";
+        return;
     }
+
+    if (lastOccurrence == head) {
+        head = head->next;
+    } else {
+        prevLastOccurrence->next = lastOccurrence->next;
+    }
+    delete lastOccurrence;
+    cout << "Deleted the last occurrence of " << targetValue << " from the list.\n";
 }
 
-void search(Node* head, int data) {
-    Node* current = head;
-    while (current != nullptr) {
-        if (current->data == data) {
-            cout << "Element " << data << " found in the list.\n";
+
+void search(ListNode* head, int targetValue) {
+    if (head == nullptr) {
+        cout << "List is empty.\n";
+        return;
+    }
+    ListNode* currentNode = head;
+    int position = 1;
+    while (currentNode != nullptr) {
+        if (currentNode->value == targetValue) {
+            cout << "Element " << targetValue << " found at position " << position << " in the list.\n";
             return;
         }
-        current = current->next;
+        currentNode = currentNode->next;
+        position++;
     }
-    cout << "Element " << data << " not found in the list.\n";
+    cout << "Element " << targetValue << " not found in the list.\n";
 }
 
-void display(Node* head) {
+
+void display(ListNode* head) {
     if (head == nullptr) {
         cout << "List is empty.\n";
         return;
     }
-    Node* current = head;
+    ListNode* currentNode = head;
     cout << "List elements: ";
-    while (current != nullptr) {
-        cout << current->data << " ";
-        current = current->next;
+    while (currentNode != nullptr) {
+        cout << currentNode->value << " ";
+        currentNode = currentNode->next;
     }
     cout << endl;
 }
 
-int main() {
-    Node* head = nullptr;
-    int choice, value;
+
+void menu() {
+    ListNode* head = nullptr;
+    int menuChoice, userValue;
+
     do {
         cout << "\nMenu:\n";
         cout << "1. Insert\n";
-        cout << "2. Delete\n";
-        cout << "3. Search\n";
-        cout << "4. Display\n";
-        cout << "5. Exit\n";
+        cout << "2. Insert Random Numbers\n";
+        cout << "3. Delete\n";
+        cout << "4. Search\n";
+        cout << "5. Display\n";
+        cout << "6. Exit\n";
         cout << "Enter your choice: ";
-        cin >> choice;
+        cin >> menuChoice;
 
-        switch (choice) {
-            case 1:
-                cout << "Number of elements you want to insert: ";
-                int t;
-                cin >> t;
-                while (t--) {
-                    cout << "Enter value to insert: ";
-                    cin >> value;
-                    insert(head, value);
-                }
-                break;
-            case 2:
-                cout << "Enter value to delete: ";
-                cin >> value;
-                deleteNode(head, value);
-                break;
-            case 3:
-                cout << "Enter value to search: ";
-                cin >> value;
-                search(head, value);
-                break;
-            case 4:
-                display(head);
-                break;
-            case 5:
-                cout << "Exiting program.\n";
-                break;
-            default:
-                cout << "Invalid choice! Please try again.\n";
+        switch (menuChoice) {
+        case 1: {
+            int insertCount;
+            cout << "Number of elements you want to insert: ";
+            cin >> insertCount;
+            while (insertCount--) {
+                cout << "Enter value to insert: ";
+                cin >> userValue;
+                insert(head, userValue);
+            }
+            break;
         }
-    } while (choice != 5);
+        case 2: {
+            int count, lower, upper;
+            cout << "How many random numbers to insert? ";
+            cin >> count;
+            cout << "Enter the lower bound (v1): ";
+            cin >> lower;
+            cout << "Enter the upper bound (v100): ";
+            cin >> upper;
+            insert_R(head, count, lower, upper);
+            break;
+        }
+        case 3: {
+            cout << "Before deletion:\n";
+            display(head);
+            cout << "Enter value to delete: ";
+            cin >> userValue;
+            deleteNode(head, userValue);
+            cout << "After deletion:\n";
+            display(head);
+            break;
+        }
+        case 4:
+            cout << "Enter value to search: ";
+            cin >> userValue;
+            search(head, userValue);
+            break;
+        case 5:
+            display(head);
+            break;
+        case 6:
+            cout << "Exiting program.\n";
+            break;
+        default:
+            cout << "Invalid choice! Please try again.\n";
+        }
+    } while (menuChoice != 6);
+}
 
+int main() {
+    menu();
     return 0;
 }
