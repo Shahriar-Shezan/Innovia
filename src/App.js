@@ -1,6 +1,8 @@
 import Login from "./components/auth/login";
 import Register from "./components/auth/register";
-import Write from "./components/Database/Write";
+import Devhome from "./components/Database/Devhome";
+import WriteMotherboard from "./components/Database/WriteMotherboard";
+import WriteProcessor from "./components/Database/WriteProcessor";
 
 
 import Home from "./components/home";
@@ -27,9 +29,18 @@ function App() {
       element: <Home />,
     },
     {
-      path: "/write",
-      element: <Write/>,
+      path: "/writeprocessor",
+      element: <WriteProcessor/>,
+    },
+    {
+      path: "/devhome",
+      element: <Devhome/>,
+    },
+    {
+      path: "/writemotherboard",
+      element: <WriteMotherboard/>,
     }
+
 
   ];
   let routesElement = useRoutes(routesArray);
