@@ -3,6 +3,7 @@ import Register from "./components/auth/register";
 import Devhome from "./components/Database/Devhome";
 import WriteMotherboard from "./components/Database/WriteMotherboard";
 import WriteProcessor from "./components/Database/WriteProcessor";
+import WriteGpu from "./components/Database/WriteGpu";
 
 
 import Home from "./components/home";
@@ -39,6 +40,10 @@ function App() {
     {
       path: "/writemotherboard",
       element: <WriteMotherboard/>,
+    },
+    {
+      path: "/writegpu",
+      element: <WriteGpu/>,
     }
 
 
