@@ -7,9 +7,9 @@ function WriteProcessor() {
   let [inputValue1, setInputValue1] = useState("");
   let [inputValue2, setInputValue2] = useState("");
   let [inputValue3, setInputValue3] = useState("");
-  let [inputValue4, setInputValue4] = useState("");
-  let [inputValue5, setInputValue5] = useState("");
-  let [inputValue6, setInputValue6] = useState("");
+  let [inputValue4, setInputValue4] = useState();
+  let [inputValue5, setInputValue5] = useState();
+  let [inputValue6, setInputValue6] = useState();
     const saveData = async () => {
       // Validation of inputs
       if (
@@ -45,7 +45,7 @@ function WriteProcessor() {
   return (
     <div>
       <div className="space-y-4">
-      <button
+       <button
           onClick={()=>setDirectory("Processors/Intel")}
           className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-all"
         >
@@ -98,9 +98,9 @@ function WriteProcessor() {
         <div className="flex flex-col">
           <label className="text-sm font-medium text-gray-700">Cores:</label>
           <input
-            type="text"
+            type="number"
             value={inputValue4}
-            onChange={(e) => setInputValue4(e.target.value)}
+            onChange={(e) => setInputValue4(Number(e.target.value))}
             className="mt-1 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
             placeholder="Enter number of cores"
           />
@@ -109,9 +109,9 @@ function WriteProcessor() {
         <div className="flex flex-col">
           <label className="text-sm font-medium text-gray-700">Threads:</label>
           <input
-            type="text"
+            type="number"
             value={inputValue5}
-            onChange={(e) => setInputValue5(e.target.value)}
+            onChange={(e) => setInputValue5(Number(e.target.value))}
             className="mt-1 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
             placeholder="Enter number of threads"
           />
@@ -120,9 +120,9 @@ function WriteProcessor() {
         <div className="flex flex-col">
           <label className="text-sm font-medium text-gray-700">Price:</label>
           <input
-            type="text"
+            type="number"
             value={inputValue6}
-            onChange={(e) => setInputValue6(e.target.value)}
+            onChange={(e) => setInputValue6(Number(e.target.value))}
             className="mt-1 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
             placeholder="Enter price"
           />

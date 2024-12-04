@@ -7,10 +7,10 @@ function WriteMotherboard() {
   let [inputValue2, setInputValue2] = useState("");
   let [inputValue3, setInputValue3] = useState("");
   let [inputValue4, setInputValue4] = useState("");
-  let [inputValue5, setInputValue5] = useState("");
-  let [inputValue6, setInputValue6] = useState("");
-  let [inputValue7, setInputValue7] = useState("");
-  let [inputValue8, setInputValue8] = useState("");
+  let [inputValue5, setInputValue5] = useState();
+  let [inputValue6, setInputValue6] = useState();
+  let [inputValue7, setInputValue7] = useState();
+  let [inputValue8, setInputValue8] = useState();
   let [inputValue9, setInputValue9] = useState("");
 
     const saveData = async () => {
@@ -104,9 +104,9 @@ function WriteMotherboard() {
         <div className="flex flex-col">
           <label className="text-sm font-medium text-gray-700">Ramslots:</label>
           <input
-            type="text"
+            type="number"
             value={inputValue5}
-            onChange={(e) => setInputValue5(e.target.value)}
+            onChange={(e) => setInputValue5(Number(e.target.value))}
             className="mt-1 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
             placeholder="Enter number of ram slots"
           />
@@ -115,9 +115,9 @@ function WriteMotherboard() {
         <div className="flex flex-col">
           <label className="text-sm font-medium text-gray-700">M.2 Slots:</label>
           <input
-            type="text"
+            type="number"
             value={inputValue6}
-            onChange={(e) => setInputValue6(e.target.value)}
+            onChange={(e) => setInputValue6(Number(e.target.value))}
             className="mt-1 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
             placeholder="Enter number of m.2 slots"
           />
@@ -126,9 +126,9 @@ function WriteMotherboard() {
         <div className="flex flex-col">
           <label className="text-sm font-medium text-gray-700">Sataports:</label>
           <input
-            type="text"
+            type="number"
             value={inputValue7}
-            onChange={(e) => setInputValue7(e.target.value)}
+            onChange={(e) => setInputValue7(Number(e.target.value))}
             className="mt-1 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
             placeholder="Enter number of sata ports"
           />
@@ -137,9 +137,9 @@ function WriteMotherboard() {
         <div className="flex flex-col">
           <label className="text-sm font-medium text-gray-700">Price:</label>
           <input
-            type="text"
+            type="number"
             value={inputValue8}
-            onChange={(e) => setInputValue8(e.target.value)}
+            onChange={(e) => setInputValue8(Number(e.target.value))}
             className="mt-1 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
             placeholder="Enter price"
           />

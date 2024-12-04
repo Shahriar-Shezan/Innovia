@@ -4,6 +4,7 @@ import Devhome from "./components/Database/Devhome";
 import WriteMotherboard from "./components/Database/WriteMotherboard";
 import WriteProcessor from "./components/Database/WriteProcessor";
 import WriteGpu from "./components/Database/WriteGpu";
+import WriteRam from "./components/Database/WriteRam";
 
 
 import Home from "./components/home";
@@ -44,6 +45,10 @@ function App() {
     {
       path: "/writegpu",
       element: <WriteGpu/>,
+    },
+    {
+      path: "/writeram",
+      element: <WriteRam/>,
     }
 
 
