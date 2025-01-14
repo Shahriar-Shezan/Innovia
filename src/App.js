@@ -6,6 +6,7 @@ import WriteProcessor from "./components/Database/WriteProcessor";
 import WriteGpu from "./components/Database/WriteGpu";
 import WriteRam from "./components/Database/WriteRam";
 import WriteStorage from "./components/Database/WriteStorage"
+import WritePsu from "./components/Database/WritePsu"
 
 
 import Home from "./components/home";
@@ -54,6 +55,10 @@ function App() {
     {
       path: "/writestorage",
       element: <WriteStorage/>,
+    },
+    {
+      path: "/writepsu",
+      element: <WritePsu/>,
     }
 
 
