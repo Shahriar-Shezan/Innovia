@@ -8,7 +8,7 @@ import WriteRam from "./components/Database/WriteRam";
 import WriteStorage from "./components/Database/WriteStorage"
 import WritePsu from "./components/Database/WritePsu"
 import WriteCasing from "./components/Database/WriteCasing";
-
+import BuildPC from "./components/home/home element/build_pc";
 
 import Home from "./components/home";
 
@@ -28,6 +28,10 @@ function App() {
     {
       path: "/login",
       element: <Login />,
+    },
+    {
+      path: "/BuildPC",
+      element: <BuildPC />,
     },
     {
       path: "/register",

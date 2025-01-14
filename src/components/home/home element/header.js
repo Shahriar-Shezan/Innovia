@@ -6,7 +6,6 @@ import { doSignOut } from '../../../firebase/auth';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-
 function AppHeader() {
   const navigate = useNavigate();
   const { userLoggedIn } = useAuth();
@@ -26,9 +25,7 @@ function AppHeader() {
             <Nav.Link href="#about" className="hover:text-blue-600 transition-colors">
               About
             </Nav.Link>
-            <Nav.Link href="#build-your-pc" className="hover:text-blue-600 transition-colors">
-              Build Your PC
-            </Nav.Link>
+            
             <Nav.Link href="#contact" className="hover:text-blue-600 transition-colors">
               Contact
             </Nav.Link>
@@ -65,6 +62,17 @@ function AppHeader() {
               className="text-sm text-gray-700 hover:text-blue-600 transition-colors ml-6"
             >
               Devtools
+            </Nav.Link>
+          </div>
+          <div className="flex items-center space-x-6">
+            <Nav.Link
+              as="button"
+              onClick={()=>{
+                navigate('/BuildPC')
+              }}
+              className="text-sm text-gray-700 hover:text-blue-600 transition-colors ml-6"
+            >
+              BuildPC
             </Nav.Link>
           </div>
         </Navbar.Collapse>
