@@ -8,52 +8,17 @@ const Devhome = () => {
       <div className="flex flex-col items-center space-y-4">
         <button className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-all"
         onClick={()=>{
-          navigate('/writeprocessor');
+          navigate('/devwrite');
         }}>
-          Processor
+          Write
         </button>
         <button className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-all"
         onClick={()=>{
-          navigate('/writeram');
+          navigate('/devread');
         }}>
-          RAM
+          Read
         </button>
-        <button className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-all"
-         onClick={()=>{
-          navigate('/writemotherboard');
-        }}>
-          Motherboard
-        </button>
-        <button className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-all"
-        onClick={()=>{
-          navigate('/writestorage');
-        }}>
-          Storage
-        </button>
-        <button className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-all"
-        onClick={()=>{
-          navigate('/writegpu');
-        }}>
-          GPU
-        </button>
-        <button className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-all"
-        onClick={()=>{
-          navigate('/writepsu');
-        }}>
-          PSU
-        </button>
-        <button className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-all"
-        onClick={()=>{
-          navigate('/writecasing');
-        }}>
-          Casing
-        </button>
-        <button className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-all"
-        onClick={()=>{
-          navigate('/writecooler');
-        }}>
-          Cooler
-        </button>
+        
       </div>
     </div>
   );

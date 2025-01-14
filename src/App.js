@@ -15,6 +15,9 @@ import Home from "./components/home";
 import { AuthProvider } from "./contexts/authContext";
 import { useRoutes } from "react-router-dom";
 import WriteCooler from "./components/Database/WriteCooler";
+import DevWrite from "./components/Database/DevWrite";
+import DevRead from "./components/Database/DevRead";
+
 
 function App() {
   const routesArray = [
@@ -69,8 +72,15 @@ function App() {
     {
       path: "/writecooler",
       element: <WriteCooler/>,
+    },
+    {
+      path: "/devwrite",
+      element: <DevWrite/>,
+    },
+    {
+      path: "/devread",
+      element: <DevRead/>,
     }
-
 
   ];
   let routesElement = useRoutes(routesArray);
