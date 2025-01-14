@@ -14,6 +14,7 @@ import Home from "./components/home";
 
 import { AuthProvider } from "./contexts/authContext";
 import { useRoutes } from "react-router-dom";
+import WriteCooler from "./components/Database/WriteCooler";
 
 function App() {
   const routesArray = [
@@ -64,6 +65,10 @@ function App() {
     {
       path: "/writecasing",
       element: <WriteCasing/>,
+    },
+    {
+      path: "/writecooler",
+      element: <WriteCooler/>,
     }
 
 
