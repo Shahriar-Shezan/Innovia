@@ -25,7 +25,7 @@ const Home = () => {
     // Close the modal when "Close" is clicked
     const handleClose = () => setShowWelcomeModal(false);
 
-    // Fallback message if `currentUser` is null
+    // Fallback message if currentUser is null
     if (!currentUser) {
         return <div>Loading...</div>;
     }
@@ -38,7 +38,7 @@ const Home = () => {
                     <Modal.Title>Welcome!</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    Hello, {currentUser.displayName || currentUser.email}! You are now logged in.
+                    You are logged in as {currentUser.displayName || currentUser.email}!
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" onClick={handleClose}>
