@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { doSignInWithEmailAndPassword } from "../../../firebase/auth"; // Import the auth function
 import LoginPageBG2 from "../../../components/Assets/LoginPageBG2.jpg"; // Background image
-
-const Login = () => {
+/*login*/
+const Login =() => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,25 +12,25 @@ const Login = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    setErrorMessage(""); // Clear previous errors
+    setErrorMessage(""); 
 
     if (!isSigningIn) {
       setIsSigningIn(true);
       try {
-        // Call Firebase auth function
+        
         const user = await doSignInWithEmailAndPassword(email, password);
 
-        // Debugging: Check the user object
+        
         console.log("Signed-in user:", user);
         console.log("User email:", user?.email);
 
-        // Redirect based on email
+        
         if (user?.email?.toLowerCase() === "admin@gmail.com") {
           console.log("Redirecting to /devhome");
-          navigate("/devhome"); // Redirect to devhome for this specific email
+          navigate("/devhome"); 
         } else {
           console.log("Redirecting to /home");
-          navigate("/home"); // Redirect to home for all other users
+          navigate("/home"); 
         }
       } catch (error) {
         setErrorMessage("Invalid email or password. Please try again.");

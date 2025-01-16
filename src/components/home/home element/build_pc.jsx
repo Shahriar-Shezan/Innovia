@@ -66,10 +66,10 @@ function BuildPC() {
   const generatePDF = () => {
     const doc = new jsPDF();
 
-    // Set page width
+    
     const pageWidth = doc.internal.pageSize.width;
     
-    // Title: Centered "PC Build Receipt"
+    
     const textWidth = doc.getTextWidth("PC Build Receipt");
     const xPosition = (pageWidth - textWidth) / 2;
     const textWidth1 = doc.getTextWidth("Innovia");
@@ -79,28 +79,28 @@ function BuildPC() {
     doc.setFontSize(16);
     doc.text("PC Build Receipt", xPosition, 15);
 
-    // Set font size for components and total
+    
     doc.setFontSize(12);
-    let y = 25; // Start content below title
+    let y = 25; 
 
-    // Loop through the selected components and add to PDF
+    
     Object.entries(selectedComponents).forEach(([category, component]) => {
       if (component) {
         doc.text(`${category}: ${component.name} - ${component.price} BDT`, 10, y);
-        y += 10; // Space for next component
+        y += 10; 
       }
     });
 
-    // Add a line before the total price
+    
     doc.setLineWidth(0.5);
-    doc.line(10, y, pageWidth - 10, y); // Horizontal line
-    y += 5; // Add some space after the line
+    doc.line(10, y, pageWidth - 10, y); 
+    y += 5; 
 
-    // Add total price section
+    
     doc.setFontSize(14);
     doc.text(`Total: ${calculateTotal()} BDT`, 10, y);
 
-    // Save the PDF
+   
     doc.save("PC_Build_Receipt.pdf");
 };
 

@@ -34,7 +34,7 @@ function App() {
     { path: "/writecooler", element: <WriteCooler /> },
     { path: "/devwrite", element: <DevWrite /> },
     { path: "/devread", element: <DevRead /> },
-    { path: "*", element: <Login /> }, // Fallback route
+    { path: "*", element: <Login /> }, 
   ];
 
   const routesElement = useRoutes(routesArray);

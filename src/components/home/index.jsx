@@ -15,7 +15,7 @@ const Home = () => {
   const { currentUser } = useAuth() || {};
   const [showWelcomeModal, setShowWelcomeModal] = useState(false);
 
-  // Debugging: Log the current user
+  
   useEffect(() => {
     console.log("Current User:", currentUser);
 
@@ -24,10 +24,10 @@ const Home = () => {
     }
   }, [currentUser]);
 
-  // Close the modal when "Close" is clicked
+  
   const handleClose = () => setShowWelcomeModal(false);
 
-  // Fallback message while loading
+  
   if (!currentUser) {
     return <div>Loading...</div>;
   }
